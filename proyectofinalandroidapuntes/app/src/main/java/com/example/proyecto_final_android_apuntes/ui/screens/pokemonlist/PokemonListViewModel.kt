@@ -1,10 +1,9 @@
 package com.example.proyecto_final_android_apuntes.ui.screens.pokemonlist
 
-import androidx.compose.runtime.MutableState
+
 import androidx.lifecycle.ViewModel
 import com.example.proyecto_final_android_apuntes.data.model.Pokemon
 import com.example.proyecto_final_android_apuntes.data.repository.IPokemonRepository
-import com.example.proyecto_final_android_apuntes.data.repository.PokemonRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

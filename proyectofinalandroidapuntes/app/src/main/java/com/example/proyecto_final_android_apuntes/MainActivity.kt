@@ -11,7 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import com.example.proyecto_final_android_apuntes.ui.navigation.Destinations
-import com.example.proyecto_final_android_apuntes.ui.navigation.
+import com.example.proyecto_final_android_apuntes.ui.navigation.appNavGraph
 import com.example.proyecto_final_android_apuntes.ui.theme.ProyectofinalandroidapuntesTheme
 
 /**

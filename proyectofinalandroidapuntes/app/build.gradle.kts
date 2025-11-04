@@ -45,8 +45,11 @@ dependencies {
 
     // Hilt
     implementation(libs.google.dagger.hilt.android)
+    implementation(libs.androidx.material3)
     kapt(libs.google.dagger.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
+    //Icons
+    implementation("androidx.compose.material:material-icons-extended:1.6.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -63,4 +66,5 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
 }
