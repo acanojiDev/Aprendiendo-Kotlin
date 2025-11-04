@@ -44,4 +44,8 @@ class PokemonRepository @Inject constructor(): IPokemonRepository{
     override fun getPokemonsbyType(type:String):List<Pokemon>{
         return pokemonList.filter {it.type == type}
     }
+    //Obtener Pokemon mayor a el nivel
+    override fun getPokemonsByHighLevel(level: Int):List<Pokemon>{
+        return pokemonList.filter { it.level > level }
+    }
 }

@@ -33,6 +33,7 @@ fun PokemonListScreen(
     val uiState = viewModel.uiState.collectAsState()
     val pokemonList = viewModel.pokemonList.collectAsState()
     val selectedType = viewModel.selectedType.collectAsState()
+    val selectedLevel = viewModel.selectedLevel.collectAsState()
 
     Scaffold(
         topBar = {
@@ -79,6 +80,16 @@ fun PokemonListScreen(
                                 }
                             }
                         )
+                        FilterLevel(
+                            selected = selectedLevel.value,
+                            onFilterClick = { level ->
+                                if(selectedLevel.value == level){
+                                    viewModel.clearFilter()
+                                }else{
+                                    viewModel.filterByLevel(level)
+                                }
+                            }
+                        )
 
                         Spacer(modifier = Modifier.height(16.dp))
 
@@ -121,6 +132,25 @@ fun PokemonListScreen(
     }
 }
 
+@Composable
+fun FilterLevel(selected: Int?, onFilterClick: (Int) -> Unit) {
+    val levels = listOf(0, 25, 50, 99)
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        levels.forEach { level ->
+            FilterChip(
+                selected = selected == level,
+                onClick = { onFilterClick(level) },
+                label = { Text("Lvl $level") }
+            )
+        }
+    }
+}
+
+
+
 /**
  * Composable para los chips de filtro
  */
@@ -143,6 +173,8 @@ private fun FilterChips(
         }
     }
 }
+
+
 
 /**
  * Composable para cada item de la lista

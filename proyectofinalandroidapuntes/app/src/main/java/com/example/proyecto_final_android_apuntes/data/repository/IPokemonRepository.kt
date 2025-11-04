@@ -9,4 +9,5 @@ interface IPokemonRepository{
     fun deletePokemon(id: Int)
     fun updatePokemon(pokemon: Pokemon)
     fun getPokemonsbyType(type: String): List<Pokemon>
+    fun getPokemonsByHighLevel(level: Int): List<Pokemon>
 }

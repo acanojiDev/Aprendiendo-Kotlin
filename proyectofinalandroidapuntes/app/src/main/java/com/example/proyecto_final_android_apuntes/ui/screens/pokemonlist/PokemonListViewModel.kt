@@ -34,6 +34,10 @@ class  PokemonListViewModel @Inject constructor(
     private val _selectedType = MutableStateFlow<String?>(null)
     val selectedType: StateFlow<String?> = _selectedType.asStateFlow()
 
+    //Filtro nivel seleccionado
+    private val _selectedLevel = MutableStateFlow<Int?>(null)
+    val selectedLevel: StateFlow<Int?> = _selectedLevel.asStateFlow()
+
     init {
         loadPokemon()
     }
@@ -55,6 +59,13 @@ class  PokemonListViewModel @Inject constructor(
     fun filterByType(type:String){
         _selectedType.value = type
         val filtered = pokemonRepository.getPokemonsbyType(type)
+        _pokemonList.value = filtered
+    }
+
+    //Filtrar por nivel
+    fun filterByLevel(level: Int){
+        _selectedLevel.value = level
+        val filtered = pokemonRepository.getPokemonsByHighLevel(level)
         _pokemonList.value = filtered
     }
 
